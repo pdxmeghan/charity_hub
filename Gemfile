@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'devise'
 
 
 group :development do
