@@ -1,0 +1,5 @@
+<%= form_for @charity, remote: true, id: "new_charity_form" do |f| %>
+  <%= f.label "Charity Name" %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
