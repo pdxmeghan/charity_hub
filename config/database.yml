@@ -1,0 +1,10 @@
+
+
+development:
+  adapter: postgresql
+  database: charity_hub_development
+
+test:
+  adapter: postgresql
+  database: charity_hub_test
+
