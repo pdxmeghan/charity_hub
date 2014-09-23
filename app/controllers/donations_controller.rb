@@ -4,9 +4,9 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @charity = Charity.find(params[:id])
+    @charity = Charity.find(params[:charity_id])
     @donation = Donation.create(donation_params)
-    if @donation.valid?
+      if @donation.valid?
       flash[:notice] = "Your donation has been accepted. Thank you!"
       redirect_to charity_path(@charity)
     else
@@ -28,6 +28,6 @@ class DonationsController < ApplicationController
 
 private
   def donation_params
-    params.require(:donation).permit(:user_id, :charity_id, :amount)
+    params.require(:donation).permit(:charity_id, :amount, :token)
   end
 end

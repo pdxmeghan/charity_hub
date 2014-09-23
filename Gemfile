@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise'
+gem 'stripe'
 
 
 group :development do

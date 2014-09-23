@@ -26,7 +26,8 @@ class CharitiesController < ApplicationController
   end
 
   def show
-    @charity = Charity.find(charity_params)
+    @charity = Charity.find(params[:id])
+    @donation = Donation.new
   end
 
   def edit
