@@ -1,7 +1,7 @@
-<h1><%= @charity.name %></h1>
+<h1><u><%= @charity.name %></u></h1>
 
 <h4>Donate Today!</h4>
-
+<div class="jumbotron">
 <form action="/charities/<%= @charity.id %>/donations" method="POST" id="payment-form">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="donation[charity_id]" value="<%= @charity.id %>">
@@ -9,36 +9,50 @@
 
  <div class="form-row">
     <label>
-      <span>Amount</span>
-      <input type="text" size="20" name="donation[amount]" data-stripe="amount"/>
+      <span class="badge">Amount</span>
+      <input type="text" size="20" name="donation[amount_in_dollars]" data-stripe="amount"/>
     </label>
   </div>
 
   <div class="form-row">
     <label>
-      <span>Card Number</span>
+      <span class="badge">Card Number</span>
       <input type="text" size="20" data-stripe="number"/>
     </label>
   </div>
 
   <div class="form-row">
     <label>
-      <span>CVC</span>
+      <span class="badge">CVC</span>
       <input type="text" size="4" data-stripe="cvc"/>
     </label>
   </div>
 
   <div class="form-row">
     <label>
-      <span>Expiration (MM/YYYY)</span>
+      <span class="badge">Expiration (MM/YYYY)</span>
       <input type="text" size="2" data-stripe="exp-month"/>
     </label>
     <span> / </span>
     <input type="text" size="4" data-stripe="exp-year"/>
   </div>
 
-  <button type="submit">Submit Payment</button>
+  <button type="submit" class="btn btn-default">Submit Payment</button>
 </form>
+</div>
+
+<div>
+  <div class="amount">
+  <div class="text-center">
+    <h2><u>Total Donations to Date:</u></h2>
+    <% if @charity.donations.first == nil %>
+      <p><strong>No money has been donated. =( </strong></p>
+    <% else %>
+      <div class="text-size">$<%= @charity.donation_total %></div>
+    <% end %>
+  </div>
+  </div>
+</div>
 
 <script type="text/javascript">
   // This identifies your website in the createToken call below
