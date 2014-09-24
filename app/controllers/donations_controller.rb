@@ -28,6 +28,6 @@ class DonationsController < ApplicationController
 
 private
   def donation_params
-    params.require(:donation).permit(:charity_id, :amount, :token)
+    params.require(:donation).permit(:charity_id, :amount, :token).merge(:user_id => current_user.id)
   end
 end
