@@ -1,9 +1,9 @@
-<h1>Welcome to The Charity Hub!</h1>
+<h1><u>Welcome to The Charity Hub!</u></h1>
 
-<h3><%= link_to "Add a charity", new_charity_path, remote: true, :id => "add_a_charity" %></h3>
+<h3><%= link_to "Add a charity", new_charity_path, remote: true, :class => "black btn btn-default", :id => "add_a_charity" %></h3>
 
 <div>
-  <ul id="charity_list">
+  <ul id="charity_list", class="black">
     <%= render(@charities) %>
   </ul>
 </div>
