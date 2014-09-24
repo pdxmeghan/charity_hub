@@ -11,7 +11,7 @@ gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 group :development do
@@ -24,6 +24,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :test do
